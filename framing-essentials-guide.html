@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framing Essentials Quick Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        linear-gradient(135deg, #5a8db8 0%, #7ba3c7 100%);
+            background-attachment: fixed;
+            padding: 40px 20px;
+            color: #2d3748;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .content-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #5a8db8;
+        }
+        
+        /* Realistic Frame Examples */
+        .examples-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .example-frame {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .example-frame.good {
+            border: 4px solid #48bb78;
+        }
+        
+        .example-frame.bad {
+            border: 4px solid #f56565;
+        }
+        
+        .example-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .example-frame.good .example-title {
+            color: #48bb78;
+        }
+        
+        .example-frame.bad .example-title {
+            color: #f56565;
+        }
+        
+        /* Video Frame Container */
+        .video-frame {
+            width: 100%;
+            height: 280px;
+            background: #2d3748;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 2px solid #4a5568;
+        }
+        
+        /* Detailed Person Illustration */
+        .person-detailed {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 240px;
+        }
+        
+        /* Head with more detail */
+        .head {
+            width: 65px;
+            height: 75px;
+            background: linear-gradient(135deg, #d4a574 0%, #c89966 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Hair */
+        .hair {
+            width: 70px;
+            height: 40px;
+            background: #3d3d3d;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Eyes */
+        .eyes {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .eye {
+            width: 8px;
+            height: 8px;
+            background: #2d3748;
+            border-radius: 50%;
+        }
+        
+        /* Glasses */
+        .glasses {
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 20px;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .glasses::before {
+            content: '';
+            width: 20px;
+            height: 15px;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            position: absolute;
+            left: 2px;
+            top: 0;
+        }
+        
+        .glasses::after {
+            content: '';
+            width: 20px;
+            height: 15px;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            position: absolute;
+            right: 2px;
+            top: 0;
+        }
+        
+        /* Smile */
+        .smile {
+            width: 25px;
+            height: 12px;
+            border: 2px solid #8b6f4f;
+            border-top: none;
+            border-radius: 0 0 25px 25px;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Neck */
+        .neck {
+            width: 35px;
+            height: 25px;
+            background: linear-gradient(135deg, #d4a574 0%, #c89966 100%);
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Shoulders */
+        .shoulders {
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(135deg, #5a8db8 0%, #4a7ba0 100%);
+            position: absolute;
+            top: 105px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        /* Body/Torso */
+        .torso {
+            width: 90px;
+            height: 120px;
+            background: linear-gradient(135deg, #5a8db8 0%, #4a7ba0 100%);
+            position: absolute;
+            top: 125px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        /* Collar */
+        .collar {
+            width: 50px;
+            height: 15px;
+            background: white;
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        
+        /* Good frame - centered and well-lit */
+        .good .person-detailed {
+            animation: breathe 3s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.02); }
+        }
+        
+        .good .video-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+        
+        /* Bad frame - off-center and dark */
+        .bad .person-detailed {
+            left: 30%;
+            animation: wobble 2s ease-in-out infinite;
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            25% { transform: translateX(-50%) translateY(-3px); }
+            75% { transform: translateX(-50%) translateY(3px); }
+        }
+        
+        .bad .video-frame {
+            background: #1a202c;
+        }
+        
+        .bad .video-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7), transparent 40%, rgba(0,0,0,0.5));
+            pointer-events: none;
+        }
+        
+        /* Frame guidelines */
+        .frame-guide {
+            position: absolute;
+            border: 2px dashed rgba(72,187,120,0.4);
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+        
+        .checkmarks-list {
+            text-align: left;
+            list-style: none;
+        }
+        
+        .checkmarks-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        
+        .good .checkmarks-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .bad .checkmarks-list li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #f56565;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .common-issues {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .issue-card {
+            background: #fff5f5;
+            border: 3px solid #f56565;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .issue-card h4 {
+            color: #f56565;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .issue-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .issue-description {
+            font-size: 0.85em;
+            color: #742a2a;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: #ebf4ff;
+            border-left: 4px solid #5a8db8;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .info-icon {
+            width: 30px;
+            height: 30px;
+            background: #5a8db8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Accordion styling */
+        .accordion-section {
+            margin-top: 20px;
+        }
+        
+        .accordion-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .accordion-header {
+            background: #f7fafc;
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2d3748;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .accordion-header:hover {
+            background: #edf2f7;
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            color: #5a8db8;
+            transition: transform 0.3s;
+        }
+        
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+        
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        
+        .accordion-inner {
+            padding: 20px;
+        }
+        
+        .accordion-inner ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .accordion-inner li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .accordion-inner li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #5a8db8;
+            font-weight: bold;
+        }
+        
+        .phrase-box {
+            background: #f0f8ff;
+            border-left: 4px solid #5a8db8;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-style: italic;
+        }
+        
+        .phrase-label {
+            font-weight: bold;
+            color: #5a8db8;
+            font-style: normal;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .examples-container,
+            .common-issues {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📹 Framing Essentials</h1>
+        <p class="subtitle">Quick Reference Guide for Deponent Video Quality</p>
+        
+        <!-- Info Box -->
+        <div class="content-box">
+            <div class="info-box">
+                <div class="info-icon">i</div>
+                <p><strong>Remember:</strong> Always address framing issues BEFORE going on the record. The witness's framing is worth 10 points on your quality rubric.</p>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 30px;">Common Issues to Correct</h2>
+            <div class="common-issues">
+                <div class="issue-card">
+                    <div class="issue-icon">🌑</div>
+                    <h4>Too Dark</h4>
+                    <p class="issue-description">Insufficient lighting obscuring face</p>
+                </div>
+                
+                <div class="issue-card">
+                    <div class="issue-icon">🔆</div>
+                    <h4>Too Bright</h4>
+                    <p class="issue-description">Overexposed, details washed out</p>
+                </div>
+                
+                <div class="issue-card">
+                    <div class="issue-icon">🌓</div>
+                    <h4>Backlit</h4>
+                    <p class="issue-description">Window behind creates shadows</p>
+                </div>
+                
+                <div class="issue-card">
+                    <div class="issue-icon">📱</div>
+                    <h4>Portrait Mode</h4>
+                    <p class="issue-description">Phone held vertically</p>
+                </div>
+                
+                <div class="issue-card">
+                    <div class="issue-icon">🖼️</div>
+                    <h4>Virtual BG</h4>
+                    <p class="issue-description">Distracting or glitching background</p>
+                </div>
+                
+                <div class="issue-card">
+                    <div class="issue-icon">↔️</div>
+                    <h4>Off-Center</h4>
+                    <p class="issue-description">Witness not centered in frame</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Expectations Guide -->
+        <div class="content-box">
+            <h2 class="section-title">Framing Expectations Guide</h2>
+            
+            <div class="accordion-section">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        🎯 Pre-Record Standards
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Address ALL framing issues before going on the record</li>
+                                <li>Witness centered with head and shoulders visible</li>
+                                <li>Face clearly lit without shadows or backlighting</li>
+                                <li>Background professional (plain or blurred)</li>
+                                <li>Landscape mode if joining from phone</li>
+                                <li>Get Taking Attorney approval if perfect framing can't be achieved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        ⏱️ During the Deposition
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Monitor witness framing throughout the deposition</li>
+                                <li>Wait for a break to address any changes</li>
+                                <li>Only interrupt during a lull, NOT during active questioning</li>
+                                <li>Document framing issues on Video Worksheet with timestamps</li>
+                                <li>Note any witness disconnections with details</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        💬 When to Defer to Counsel
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Witness becomes resistant or agitated about framing requests</li>
+                                <li>You've exhausted all reasonable adjustment requests</li>
+                                <li>Ask TA: "Are you happy with the current framing?"</li>
+                                <li>If TA approves current setup, proceed without further requests</li>
+                                <li>Document any framing limitations on your worksheet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        📱 Special Situations
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li><strong>Phone users:</strong> Request landscape mode and stable surface placement</li>
+                                <li><strong>Shared camera (attorney + witness):</strong> Center witness; ask if attorney has another device</li>
+                                <li><strong>Owl/split-screen cameras:</strong> Request single-view camera; if unavoidable, document on worksheet and contact #video-help for guidance</li>
+                                <li><strong>Virtual backgrounds:</strong> Request blur filter or removal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-box" style="margin-top: 25px;">
+                <div class="info-icon">💡</div>
+                <p><strong>Pro Tip:</strong> When you see GOOD framing, acknowledge it! Let the witness know they're doing it right and ask them to maintain that positioning throughout the deposition.</p>
+            </div>
+        </div>
+        
+        <!-- Quick Phrases -->
+        <div class="content-box">
+            <h2 class="section-title">Quick Coaching Phrases</h2>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Good Framing (Acknowledge it!):</span>
+                "Your current video feed image is clear and well-centered, so please be mindful of maintaining this positioning throughout the deposition."
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For General Adjustments:</span>
+                "Since this deposition is being recorded, I want to get your framing set up correctly. Could you please center your face in the frame with enough room above and below your head?"
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Dark Lighting:</span>
+                "It seems that the current lighting in the room is a bit dim. Would it be possible for you to brighten up the space by turning on a light or opening a window in the direction you're facing?"
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Bright/Backlit Issues:</span>
+                "It appears that the room you're in is quite bright. To achieve better framing, would you be able to adjust the lighting by closing blinds or curtains, or moving to a slightly different spot?"
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Portrait Mode (Phone):</span>
+                "For optimal framing, could you rotate your phone to landscape mode? If you need assistance changing your orientation, I can help walk you through the process."
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Virtual Backgrounds:</span>
+                "It seems that the background behind you is somewhat distracting. Would it be possible to enable the 'blur' background in Zoom or choose a different location?"
+            </div>
+            
+            <div class="phrase-box">
+                <span class="phrase-label">For Off-Center Positioning:</span>
+                "It seems that your current positioning might need some adjustment for better framing. Would it be possible for you to recenter yourself within the frame, ensuring that you are well-positioned and aligned?"
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            // Close all accordions
+            document.querySelectorAll('.accordion-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('active');
+            });
+            
+            // Open clicked accordion if it wasn't active
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
